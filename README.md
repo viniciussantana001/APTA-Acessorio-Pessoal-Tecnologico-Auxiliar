@@ -15,11 +15,15 @@
 
    * Ainda no terminal, rode:
 
+    ```bash
+     npm install -g expo-cli
+     ```
+   
      ```bash
      npm install
      ```
 
-4. **Testar o projeto**
+5. **Testar o projeto**
 
    * Antes de fazer um commit, inicie o servidor de testes com:
 
