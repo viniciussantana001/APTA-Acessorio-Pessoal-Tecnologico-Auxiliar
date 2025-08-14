@@ -40,3 +40,13 @@ Para mais dúvidas ou para aprender mais sobre o uso do Expo e React Native, ass
 🎥 [Vídeo tutorial no YouTube](https://www.youtube.com/watch?v=a8YvzTXft9c&t=679s)
 
 ---
+
+## **Dica extra**
+
+Para mais dúvidas ou para aprender mais sobre o uso do Expo e React Native, assista:
+🎥 [Vídeo tutorial no YouTube](https://www.youtube.com/watch?v=a8YvzTXft9c&t=679s)
+
+Ou confira o guia completo de desenvolvimento de aplicativos móveis no Notion:
+📘 [Desenvolvendo seu primeiro App Mobile - DevClub](https://devclub.notion.site/85-Desenvolvendo-seu-primeiro-App-Mobile-1df3f245f933804997c1c08395506fc2)
+
+---
