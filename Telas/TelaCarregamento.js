@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet, Dimensions } from "react-native";
 import Animated, {
   FadeInDown,
   FadeInUp,
@@ -9,17 +9,18 @@ import Animated, {
 } from "react-native-reanimated";
 import { useEffect } from "react";
 
+const { width, height } = Dimensions.get("window");
+
 export default function Intro() {
-  // valor compartilhado para animar o eixo Y
   const translateY = useSharedValue(0);
 
   useEffect(() => {
     translateY.value = withRepeat(
-      withTiming(-6, { duration: 1000 }), // sobe 6px em 3s
+      withTiming(-10, { duration: 1000 }), // sobe 6px em 3s
       -1, // infinito
       true // vai e volta
     );
-  }, );
+  }, []);
 
   const animatedLogoStyle = useAnimatedStyle(() => {
     return {
@@ -34,7 +35,7 @@ export default function Intro() {
         entering={FadeInDown.duration(1000)}
         source={require("./assets/ondas.png")}
         style={styles.waveTop}
-        resizeMode="contain"
+        resizeMode="cover"
       />
 
       {/* Conteúdo central */}
@@ -55,19 +56,19 @@ export default function Intro() {
 
         {/* Logo com efeito flutuante */}
         <Animated.Image
-          entering={FadeInUp.duration(1000).delay(500)}
+          entering={FadeInUp.duration(1000).delay(600)}
           source={require("./assets/logo.png")}
           style={[styles.logo, animatedLogoStyle]}
           resizeMode="contain"
         />
       </View>
 
-      {/* Onda de baixo */}
+      {/* Onda de baixo (sem inversão) */}
       <Animated.Image
-        entering={FadeInDown.duration('400').delay(800)}
-        source={require("./assets/ondas.png")}
+        entering={FadeInDown.duration(1000).delay(800)}
+        source={require("./assets/ondasbaixo.png")}
         style={styles.waveBottom}
-        resizeMode="contain"
+        resizeMode="cover"
       />
     </SafeAreaView>
   );
@@ -81,17 +82,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   waveTop: {
-    width: "100%",
-    height: 120,
+    width: width,
+    height: height * 0.18,
     position: "absolute",
     top: 0,
   },
   waveBottom: {
-    width: "100%",
-    height: 120,
+    width: width,
+    height: height * 0.18,
     position: "absolute",
     bottom: 0,
-    transform: [{ rotate: "180deg" }],
+    // sem transform, fica do jeito certo
   },
   centerContent: {
     flex: 1,
@@ -99,19 +100,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   welcome: {
-    fontSize: 22,
+    fontSize: width * 0.07,
     fontWeight: "bold",
     color: "#374151",
-    marginBottom: 5,
+    marginBottom: 10,
   },
   apta: {
-    fontSize: 20,
+    fontSize: width * 0.065,
     fontWeight: "bold",
     color: "#374151",
-    marginBottom: 20,
+    marginBottom: 25,
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: width * 0.35,
+    height: width * 0.35,
   },
 });
